@@ -1,66 +1,12 @@
 import React, { useEffect } from 'react';
 import { render } from 'react-dom';
 import './App.css';
+import {
+  excludeString,
+  toRoundedUpText,
+  toRoundedDownText,
+} from './helpers/stringHelper.js';
 
-const excludeString = value => {
-  let exval = String(value);
-  while (exval.search(/\D/) !== -1)
-    exval = exval.replace(/\D/, '');
-  if (exval !== '')
-    exval = '' + parseInt(exval, 10);
-  return exval;
-}
-const roundDown = value => {
-  if (String(value) === '')
-    return '';
-
-  let exval = ('0000' + String(value)).slice(-4);
-  let shour = exval.slice(0, 2);
-  let sminute = exval.slice(2, 4);
-  let nhour = parseInt(shour, 10);
-  let nminute = parseInt(sminute, 10);
-
-  if (nminute < 15) {
-    nminute = 0;
-  } else if (nminute < 30) {
-    nminute = 15;
-  } else if (nminute < 45) {
-    nminute = 30;
-  } else {
-    nminute = 45;
-  }
-
-  shour = ('00' + nhour).slice(-2);
-  sminute = ('00' + nminute).slice(-2);
-  return `${shour}:${sminute}`;
-}
-const roundUp = value => {
-  if (String(value) === '')
-    return '';
-
-  let exval = ('0000' + String(value)).slice(-4);
-  let shour = exval.slice(0, 2);
-  let sminute = exval.slice(2, 4);
-  let nhour = parseInt(shour, 10);
-  let nminute = parseInt(sminute, 10);
-
-  if (nminute > 45) {
-    nhour++;
-    nminute = 0;
-  } else if (nminute > 30) {
-    nminute = 45;
-  } else if (nminute > 15) {
-    nminute = 30;
-  } else if (nminute > 0) {
-    nminute = 15;
-  } else {
-    nminute = 0;
-  }
-
-  shour = ('00' + nhour).slice(-2);
-  sminute = ('00' + nminute).slice(-2);
-  return `${shour}:${sminute}`;
-}
 const DateRow = props => {
   return (
     <tr>
@@ -77,7 +23,7 @@ const DateRow = props => {
             e.target.value = value;
             const output_id = `output_start_${props.id}`;
             const output = document.getElementById(output_id);
-            output.innerText = roundUp(value);
+            output.innerText = toRoundedUpText(value);
           }}
         />
       </td>
@@ -89,7 +35,7 @@ const DateRow = props => {
             e.target.value = value;
             const output_id = `output_end_${props.id}`;
             const output = document.getElementById(output_id);
-            output.innerText = roundDown(value);
+            output.innerText = toRoundedDownText(value);
           }}
         />
       </td>
