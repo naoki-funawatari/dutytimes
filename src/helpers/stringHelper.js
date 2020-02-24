@@ -61,3 +61,10 @@ export const toRoundedDownText = value => {
   sminute = (`00${nminute}`).slice(-2);
   return `${shour}:${sminute}`;
 }
+
+export const toCurrencyValue = value => {
+  if (`${value}`.trim() === '') {
+    return '';
+  }
+  return Number(value).toLocaleString();
+}

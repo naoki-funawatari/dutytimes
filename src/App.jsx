@@ -1,7 +1,15 @@
 import React from 'react';
-import DutyTimes from './components/DutyTimes';
+import Nav from './components/Nav';
+import Main from './components/Main';
 import './App.css';
 
-const App = () => <DutyTimes />;
+const App = () => {
+  return (
+    <>
+      <Nav />
+      <Main />
+    </>
+  );
+}
 
 export default App;

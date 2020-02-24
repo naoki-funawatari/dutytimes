@@ -1,3 +1,22 @@
+#root {
+  display: grid;
+  grid-template-areas: "nav main";
+  grid-template-rows: auto;
+  grid-template-columns: 200px 540px;
+  grid-gap: 5px;
+  justify-content: center;
+}
+
+nav {
+  grid-area: nav;
+  padding: 20px;
+}
+
+main {
+  grid-area: main;
+  padding: 20px;
+}
+
 table {
   margin-right: auto;
   margin-left: auto;
