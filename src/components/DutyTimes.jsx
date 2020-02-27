@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DateList from './DateList';
 
 // const fetchDisplayDate = async () => {
@@ -19,21 +19,8 @@ import DateList from './DateList';
 
 const DutyTimes = () => {
   const { year, month } = useParams();
-
-  if (year === undefined || month === undefined) {
-    const today = new Date();
-    const date = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate() - 7);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    return (
-      <Redirect to={`/${year}/${month}`} />
-    );
-  }
-
   const displayDate = new Date(+year, +month - 1, 1);
+
   return (
     <DateList
       year={displayDate.getFullYear()}
