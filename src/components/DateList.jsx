@@ -12,16 +12,6 @@ const DateList = ({ year, month }) => {
           <tr>
             <td colSpan="2">{year} 年 {month + 1} 月</td>
             <td>
-              <button type="button" onClick={e => {
-                const ta = document.getElementById('textarea');
-                ta.value = [...document.querySelectorAll('.round')].map((v, i) => {
-                  return v.innerText + (i % 2 === 0 ? '\t' : '\n')
-                }).join('');
-                ta.style.visibility = 'visible';
-                ta.select();
-                document.execCommand('copy');
-                ta.style.visibility = 'hidden';
-              }}>copy</button>
             </td>
             <td></td>
           </tr>
@@ -40,9 +30,6 @@ const DateList = ({ year, month }) => {
           })}
         </tbody>
       </table>
-      <textarea id="textarea" defaultValue="" cols="1" rows="1"
-        style={{ width: 0, heigth: 0, visibility: 'hidden' }}>
-      </textarea>
     </>
   );
 }

@@ -1,8 +1,8 @@
 #root {
   display: grid;
-  grid-template-areas: "nav main";
+  grid-template-areas: "nav main aside";
   grid-template-rows: auto;
-  grid-template-columns: 200px 540px;
+  grid-template-columns: 200px 340px 200px;
   grid-gap: 5px;
   justify-content: center;
 }
@@ -14,6 +14,11 @@ nav {
 
 main {
   grid-area: main;
+  padding: 20px;
+}
+
+aside {
+  grid-area: aside;
   padding: 20px;
 }
 
@@ -36,4 +41,8 @@ table {
 
 .wd6 {
   color: blue;
+}
+
+.pasteArea {
+  margin-top: 10px;
 }

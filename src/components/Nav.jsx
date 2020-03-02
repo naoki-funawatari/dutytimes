@@ -31,7 +31,7 @@ const DateList = () => {
       today.getDate());
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    return <ListItem index={i} year={year} month={month} />
+    return <ListItem key={i} index={i} year={year} month={month} />
   });
 }
 
