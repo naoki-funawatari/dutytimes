@@ -23,10 +23,14 @@ const Nav = () => {
 export default Nav;
 
 const DateList = () => {
+  const today = new Date();
   return [...Array(12)].map((v, i) => {
-    const date = new Date();
+    const date = new Date(
+      today.getFullYear(),
+      today.getMonth() - 1 + i,
+      today.getDate());
     const year = date.getFullYear();
-    const month = date.getMonth() + i;
+    const month = date.getMonth() + 1;
     return <ListItem index={i} year={year} month={month} />
   });
 }
