@@ -11,7 +11,7 @@ const Nav = () => {
       <Router>
         <ul>
           <li>
-            <Link to="/">当月</Link>
+            <Link to="/">先週</Link>
           </li>
           {list}
         </ul>
