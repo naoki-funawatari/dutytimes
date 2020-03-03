@@ -4,6 +4,7 @@ import {
   toRoundedUpText,
   toRoundedDownText,
 } from '../helpers/stringHelper';
+import InputText from './InputText';
 
 const DateRow = props => {
   return (
@@ -39,6 +40,7 @@ const DateRow = props => {
       </td>
       <td className="round" id={`output_start_${props.id}`}></td>
       <td className="round" id={`output_end_${props.id}`}></td>
+      <td style={{ fontSize: 0 }}><InputText id={`toggle_${props.id}`} /></td>
     </tr>
   );
 }
