@@ -2,6 +2,7 @@ import React from 'react';
 import {
   HashRouter as Router,
   Link,
+  Route,
 } from 'react-router-dom';
 
 const Nav = () => {
@@ -9,12 +10,14 @@ const Nav = () => {
   return (
     <nav>
       <Router>
-        <ul>
-          <li>
-            <Link to="/">先週</Link>
-          </li>
-          {list}
-        </ul>
+        <Route path="/:year/:month">
+          <ul>
+            <li>
+              <Link to="/">先週</Link>
+            </li>
+            {list}
+          </ul>
+        </Route>
       </Router>
     </nav >
   );

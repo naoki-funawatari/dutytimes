@@ -2,10 +2,11 @@ import React from 'react';
 import {
   HashRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 import RootRedirect from './RootRedirect';
 import DutyTimes from './DutyTimes';
+import NotFound from './NotFound';
 
 const Main = () => {
   return (
@@ -14,7 +15,7 @@ const Main = () => {
         <Switch>
           <Route exact path="/" component={RootRedirect} />
           <Route path="/:year/:month" component={DutyTimes} />
-          <Route render={() => <h1>ページが見つかりません</h1>} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </main>
