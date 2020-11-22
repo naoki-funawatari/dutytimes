@@ -29,6 +29,7 @@ table {
 
 .datelabel {
   text-align: right;
+  white-space: nowrap;
 }
 
 .round {
